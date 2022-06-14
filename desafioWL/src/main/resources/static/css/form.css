@@ -1,0 +1,9 @@
+body{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-image: url("../img/cafe-animado.gif");
+	background-repeat: no-repeat;
+	background-size: cover;
+}

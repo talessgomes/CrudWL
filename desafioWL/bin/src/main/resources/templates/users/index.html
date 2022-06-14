@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home</title>
+
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+<div>
+	<header>
+		<div id="cabecalho">
+			<h1>Lista de Café da Manhã</h1>
+			<button id="button-header"><A class="nav-link" href="/users/cadastrar">Cadastrar</A> </button>
+		</div>
+	</header>
+	
+<div class="container my-2">
+		<h1>Colaboradores</h1>
+		<table border="1" id="alter">
+			<thead id="cabeçalho-tabela">
+				<tr>
+					<th><h2>Nome</h2></th>
+					<th><h2>CPF</h2></th>
+					<th><h2>Item</h2></th>
+					<th><h2>Ações</h2></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="dif" th:each="user : ${listUsers}" >
+					<td id th:text="${user.nome}"></td>
+					<td th:text="${user.cpf}"></td>
+					<td th:text="${user.item.getItem()}"></td>
+					<td>
+						<button id="button-alterar"><a class="nav-link" th:href="@{/users/{id}(id=${user.id})}">Alterar</a></button>
+						<button id="button-excluir"><a class="nav-link" th:href="@{/users/remover/{id}(id=${user.id})}">Excluir</a><button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer id="rodape" class="fixarRodape">
+		<p>Tales Gomes</p>
+	</footer>
+	</div>
+</body>
+
+</html>
